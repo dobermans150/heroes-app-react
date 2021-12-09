@@ -3,11 +3,16 @@ import { Link, NavLink } from 'react-router-dom'
 
 export const Navbar = () => {
 
+    const navLinkClass = ( { isActive } ) => "nav-item nav-link" + ( isActive ? " active" : '' );
+
+
     const handleLogout = () => {
         console.log( 'por hacer' );
     }
 
     return (
+
+
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
 
             <Link
@@ -21,14 +26,14 @@ export const Navbar = () => {
                 <div className="navbar-nav">
 
                     <NavLink
-                        className={ ( { isActive } ) => "nav-item nav-link" + ( isActive ? " active" : '' ) }
+                        className={ ( isActive ) => navLinkClass( isActive ) }
                         to="/marvel"
                     >
                         Marvel
                     </NavLink>
 
                     <NavLink
-                        className={ ( { isActive } ) => "nav-item nav-link" + ( isActive ? " active" : '' ) }
+                        className={ ( isActive ) => navLinkClass( isActive ) }
                         to="/dc"
                     >
                         DC
