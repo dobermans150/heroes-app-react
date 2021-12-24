@@ -6,8 +6,8 @@ import { types } from "../../types/types";
 export const LoginScreen = () => {
 
     const { user, dispatch } = useContext( AuthContext );
-
     const navigate = useNavigate();
+
 
     const handleLogin = () => {
 
@@ -20,8 +20,9 @@ export const LoginScreen = () => {
         }
 
         dispatch( action );
+        const lastPath = localStorage.getItem( 'lastPath' ) || '/marvel';
 
-        navigate( '/', {
+        navigate( lastPath, {
             replace: true
         } )
     }
