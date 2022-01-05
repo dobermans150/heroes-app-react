@@ -1,6 +1,10 @@
 import { useMemo } from 'react';
 import { useParams, Navigate, useNavigate } from 'react-router-dom'
+import { heroImages } from '../../helpers/heroImages';
 import { getHeroById } from '../../selectors/getHeroeById';
+
+// import batman from '../../assets/img/dc-batman.jpg' recurso estatico
+
 
 export const HeroScreen = () => {
 
@@ -25,7 +29,7 @@ export const HeroScreen = () => {
 
 
 
-    const imagePath = `/assets/img/${id}.jpg`
+    /*  const imagePath = `/assets/img/${id}.jpg` */
 
     const handleReturn = () => {
 
@@ -36,7 +40,16 @@ export const HeroScreen = () => {
     return (
         <div className="row mt-5">
             <div className="col-4">
-                <img src={ imagePath } alt={ superhero } className="img-thumbnail animate__animated animate__fadeInLeft" />
+                <img
+                    /* src={ imagePath }  desde la carpte puclic*/
+                    /* src={ batman } importaction estatica */
+                    src={ heroImages( `./${id}.jpg` ).default }
+                    alt={ superhero }
+                    className="img-thumbnail animate__animated animate__fadeInLeft"
+                />
+
+
+
             </div>
 
 
