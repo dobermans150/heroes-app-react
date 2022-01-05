@@ -10,7 +10,9 @@ export const HeroScreen = () => {
     const hero = useMemo( () => getHeroById( heroId ), [ heroId ] );
 
 
-
+    if ( !hero ) {
+        return <Navigate to='/' />
+    }
 
     const {
         id,
@@ -21,9 +23,7 @@ export const HeroScreen = () => {
         superhero
     } = hero
 
-    if ( !hero ) {
-        return <Navigate to='/' />
-    }
+
 
     const imagePath = `/assets/img/${id}.jpg`
 
